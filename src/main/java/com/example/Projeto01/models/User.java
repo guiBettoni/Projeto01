@@ -39,9 +39,9 @@ public class User {
 
   @JsonProperty(access = Access.WRITE_ONLY)
   @Column(name = "password", length = 60, nullable = false)
-  @NotNull(groups = CreateUser.class)
-  @NotEmpty(groups = CreateUser.class)
-  @Size(groups = CreateUser.class, min = 8, max = 60)
+  @NotNull(groups = { CreateUser.class, UpdateUser.class })
+  @NotEmpty(groups = { CreateUser.class, UpdateUser.class })
+  @Size(groups = { CreateUser.class, UpdateUser.class }, min = 8, max = 60)
   private String password;
 
   // private List<Task> tasks = new ArrayList<Task>();
